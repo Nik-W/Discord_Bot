@@ -6,8 +6,8 @@
 #Защита конфига
 Discord Bot/config.py
 #Игнор сборки
-/dist
-/build
+Discord Bot/dist
+Discord Bot/build
 
 # User-specific files
 *.rsuser
