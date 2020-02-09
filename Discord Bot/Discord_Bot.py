@@ -1,7 +1,7 @@
 import discord
 from discord import utils
 import pyowm
-import config
+import config #скрыт
 
 class MyClient(discord.Client):
 	async def on_ready(self):	#проверка включения
