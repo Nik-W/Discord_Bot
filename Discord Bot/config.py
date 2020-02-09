@@ -1,4 +1,4 @@
-TOKEN = 'Njc1NjI1MDc3NzM5NjE4MzA1.XkA6Hg.2W-tBka13qRFoecr6tf6vx1iWBU'   #токен бота
+TOKEN = 'Njc1NjI1MDc3NzM5NjE4MzA1.XkA_CQ.NSAVZFzgUamaSlfDJo-F6Gg18JM'   #токен бота
 
 TOKEN_OWM = '4e409ce5bc99b32123aaf437c920e2e6'  #токен погоды
 
