@@ -53,22 +53,22 @@ class MyClient(discord.Client):
 			channel = message.channel	#объект канала
 			try:
 				observation = owm.weather_at_place(msg)		#поиск города
-			except:
-				await channel.send("Локация *{}* не найдена!".format(msg))	#ошибка поиска
-			w = observation.get_weather()	#информация о погоге
-			temp = w.get_temperature('celsius')["temp"]		#температура
-			answer = "В городе " + msg + " сейчас " + w.get_detailed_status() + "\n"
-			answer += "Температура: " + str(temp) + "\n\n"	#составляем ответ
-			if temp < 0:
-				answer += "Очень холодно!"
-			elif temp < 10:
-				answer += "Холодно."
-			elif temp < 20:
-				answer += "Прохладно."
-			else:
-				answer += "Нормально."
-			print("\n" + answer)	#ответ в консоль
-			await channel.send(answer)	#ответ в канал
+				w = observation.get_weather()	#информация о погоге
+				temp = w.get_temperature('celsius')["temp"]		#температура
+				answer = "В городе " + msg + " сейчас " + w.get_detailed_status() + "\n"
+				answer += "Температура: " + str(temp) + "\n\n"	#составляем ответ
+				if temp < 0:
+					answer += "Очень холодно!"
+				elif temp < 10:
+					answer += "Холодно."
+				elif temp < 20:
+					answer += "Прохладно."
+				else:
+					answer += "Нормально."
+				print("\n" + answer)	#ответ в консоль
+				await channel.send(answer)	#ответ в канал
+			except pyowm.exceptions.api_response_error.NotFoundError: #ошибка поиска
+				await channel.send("Локация *{}* не найдена!".format(msg))	
 
 	async def on_member_remove(self, member):	#выход пользователя
 		channel = self.get_channel(config.CHANNAL_MAIN_ID)		#объект канала по ID
